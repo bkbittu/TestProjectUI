@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "okppoGtGyhrA0/3tvwooE6EAIQTsSQTGcRktJrDS62vPE53B2QRkuw3TYIpd/Wd1D79u2NRP8a0gas9LFCUgvA==",
+  "success": true,
+  "projectFilePath": "C:\\Project\\Empdata\\Empdata\\Empdata.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

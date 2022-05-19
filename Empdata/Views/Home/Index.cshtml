@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    <h5>Employee Data</h5>
+    <div>
+        <button id="btnLoad">Load Data</button>
+    </div>
+    <div style="margin-top:10px;">
+        
+    </div>
+    <div class="align-content-sm-center">
+        <table class="table-striped table-bordered" style="align-content: center; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Emal</th>
+                    <th>Contact</th>
+                </tr>
+
+            </thead>
+            <tbody id="tblemployee">
+            <tbody>
+        </table>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    var row = "";
+    $(document).ready(function () {
+        $("#btnLoad").click(function () {
+            $.ajax({
+                url: "https://localhost:44394/api/Employee/GetEmployees",
+                headers: {
+                    "Authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ0ZXN0MSIsImV4cCI6MTY1MzU4MzM0MX0.H2GqWJNgrfgBm6LWm3OhHNnVFCFF2Nn4OIiQOuOuKiwydWJyH5k4_LWQrJ_DFZkSlt23z0y5Vy97_5yITSngAw"
+                },
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $("#tblemployee").empty();
+                            for (var i = 0; i < result.length; i++) {
+                                row = "<tr><td>" + result[i].id + "</td><td>" + result[i].name + "</td><td>" + result[i].email + "</td><td>" + result[i].contact + "</td</tr>";
+                                $("#tblemployee").append(row);
+                            }
+                        }
+                    }
+            });
+        });
+    });
+</script>
+
